@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BMi</string>
+    <string name="button_name">Count</string>
+    <string name="mass_kg">Mass[kg]</string>
+    <string name="mass_lb">Mass [lb]</string>
+    <string name="height_cm">Height[cm]</string>
+    <string name="height_in">Height [in]</string>
+    <string name="norma">NORMA</string>
+    <string name="zero">0,00</string>
+    <string name="action_one">About Me</string>
+    <string name="action_two">Change Units</string>
+    <string name="action_three">History</string>
+    <string name="change_color">Change color</string>
+    <string name="garfield_button">Click me!</string>
+</resources>

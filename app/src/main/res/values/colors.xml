@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="WHITE">#FFFFFF</color>
+    <color name="BLUE">#87CEFA</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="BLACK">#000000</color>
+    <color name="GRYNSZPAN">#00A693</color>
+    <color name="LAPISLAZULI">#3366CC</color>
+    <color name="RÓŻPOMPEJAŃSKI">#B80000</color>
+</resources>
