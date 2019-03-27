@@ -6,10 +6,12 @@
     <string name="height_cm">Height[cm]</string>
     <string name="height_in">Height [in]</string>
     <string name="norma">NORMA</string>
-    <string name="zero">0,00</string>
+    <string name="zero">0.00</string>
     <string name="action_one">About Me</string>
     <string name="action_two">Change Units</string>
     <string name="action_three">History</string>
     <string name="change_color">Change color</string>
     <string name="garfield_button">Click me!</string>
+    <string name="info">No info!</string>
+    <string name="question_mark">"\????"</string>
 </resources>

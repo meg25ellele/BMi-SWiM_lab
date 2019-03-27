@@ -11,6 +11,7 @@ class AboutMe : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestedOrientation= ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         setContentView(R.layout.activity_about_me)
 
         setSupportActionBar(toolbar2)

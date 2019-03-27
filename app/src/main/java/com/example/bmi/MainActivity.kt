@@ -1,8 +1,6 @@
 package com.example.bmi
 
 import android.content.Intent
-import android.content.res.Resources
-import android.graphics.Color
 import com.example.bmi.logic.BmiForKgCm
 import android.os.Bundle
 import android.view.View
@@ -16,12 +14,17 @@ import com.example.bmi.logic.BmiForLbIN
 
 
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 import kotlin.math.roundToInt
+
+const val RESULT="0.00"
 
 class MainActivity : AppCompatActivity() {
 
 
     var kg_cm = true
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
 
-        result_text.text=savedInstanceState?.getString("result_text")
-        bmi_text.text=savedInstanceState?.getString("bmi_text")
 
 
         if(savedInstanceState!=null) {
@@ -38,6 +39,9 @@ class MainActivity : AppCompatActivity() {
             height_text.text = savedInstanceState.getString("height_text")
             result_text.setTextColor(savedInstanceState.getInt("color"))
             kg_cm=savedInstanceState.getBoolean("kg_cm")
+            result_text.text=savedInstanceState.getString("result_text")
+            bmi_text.text=savedInstanceState.getString("bmi_text")
+
 
         }
 
@@ -63,8 +67,9 @@ class MainActivity : AppCompatActivity() {
             return true
         }
         if (id == R.id.action_three) {
-            Toast.makeText(this, "Item Three Clicked", Toast.LENGTH_LONG).show()
-            return true
+
+
+           return true
         }
 
         return super.onOptionsItemSelected(item)
@@ -98,23 +103,26 @@ class MainActivity : AppCompatActivity() {
             val bmi_result:String
             val result:String
 
+
             if(kg_cm) {
 
                 bmi = BmiForKgCm(massNumber, heightNumber)
                 bmi_result = bmi.returnResult()
 
-                result = String.format("%.2f", bmi.countBmi())
+                result = String.format(Locale.ENGLISH,"%.2f", bmi.countBmi())
             }
             else {
                 bmi = BmiForLbIN(massNumber, heightNumber)
                 bmi_result = bmi.returnResult()
 
-                result = String.format("%.2f", bmi.countBmi())
+                result = String.format(Locale.ENGLISH,"%.2f", bmi.countBmi())
 
             }
 
             result_text.text = result
             bmi_text.text = bmi_result
+
+
 
             if(bmi_result =="UNDERWEIGHT") {
                 result_text.setTextColor(ContextCompat.getColor(this,R.color.LAPISLAZULI))
@@ -182,5 +190,17 @@ class MainActivity : AppCompatActivity() {
        if(height_edit.text.toString()!=""){
            height_edit.setText((height_edit.text.toString().toInt()*height_scaler).roundToInt().toString())
        }
+    }
+
+    fun infoClick(view: View?){
+        if(result_text.text.toString()!="0.00") {
+            val message = result_text.text.toString()
+            val intent = Intent(this, Info::class.java).apply {
+                putExtra(RESULT, message)
+            }
+            startActivity(intent)
+        }
+        else
+            Toast.makeText(this, "No info!", Toast.LENGTH_SHORT).show()
     }
 }
