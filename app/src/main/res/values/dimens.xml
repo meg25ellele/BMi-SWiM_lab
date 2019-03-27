@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bmi_marginEnd_elements_horizontal">8dp</dimen>
+    <dimen name="bmi_marginStart_elements_horizontal">8dp</dimen>
+</resources>

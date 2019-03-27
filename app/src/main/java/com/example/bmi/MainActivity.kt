@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+
         if(savedInstanceState!=null) {
             mass_text.text = savedInstanceState.getString("mass_text")
             height_text.text = savedInstanceState.getString("height_text")
@@ -124,17 +126,17 @@ class MainActivity : AppCompatActivity() {
 
 
 
-            if(bmi_result =="UNDERWEIGHT") {
+            if(bmi_result ==getString(R.string.underweight)) {
                 result_text.setTextColor(ContextCompat.getColor(this,R.color.LAPISLAZULI))
             }
-            if(bmi_result=="OBESE"){
+            if(bmi_result==getString(R.string.obese)){
                 result_text.setTextColor(ContextCompat.getColor(this,R.color.GRYNSZPAN))
 
             }
-            if(bmi_result=="OVERWEIGHT"){
+            if(bmi_result==getString(R.string.overweight)){
                 result_text.setTextColor(ContextCompat.getColor(this,R.color.RÓŻPOMPEJAŃSKI))
             }
-            if (bmi_result=="NORMAL") {
+            if (bmi_result==getString(R.string.normal)) {
                 result_text.setTextColor(ContextCompat.getColor(this, R.color.BLACK))
             }
         }
@@ -184,16 +186,16 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-       if(mass_edit.text.toString()!="" ) {
+       if(mass_edit.text.toString()!=getString(R.string.plain) ) {
            mass_edit.setText((mass_edit.text.toString().toInt()*mass_scaler).roundToInt().toString())
        }
-       if(height_edit.text.toString()!=""){
+       if(height_edit.text.toString()!=getString(R.string.plain)){
            height_edit.setText((height_edit.text.toString().toInt()*height_scaler).roundToInt().toString())
        }
     }
 
     fun infoClick(view: View?){
-        if(result_text.text.toString()!="0.00") {
+        if(result_text.text.toString()!=getString(R.string.zero)) {
             val message = result_text.text.toString()
             val intent = Intent(this, Info::class.java).apply {
                 putExtra(RESULT, message)
@@ -201,6 +203,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         else
-            Toast.makeText(this, "No info!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_noinfo), Toast.LENGTH_SHORT).show()
     }
 }

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
@@ -26,128 +27,23 @@ class MainActivityTest {
     var mActivityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
-    fun mainActivityTest() {
-        val editText = onView(
-            allOf(
-                withId(R.id.mass_edit),
-                childAtPosition(
-                    childAtPosition(
-                        withId(android.R.id.content),
-                        0
-                    ),
-                    3
-                ),
-                isDisplayed()
-            )
-        )
-        editText.perform(click())
+    fun mainActivityTest2() {
+        
 
-        val editText2 = onView(
-            allOf(
-                withId(R.id.mass_edit),
-                childAtPosition(
-                    childAtPosition(
-                        withId(android.R.id.content),
-                        0
-                    ),
-                    3
-                ),
-                isDisplayed()
-            )
-        )
-        editText2.perform(replaceText("65"), closeSoftKeyboard())
+        val massEditText = onView(withId(R.id.mass_edit))
+        massEditText.perform(replaceText("65"), closeSoftKeyboard())
 
-        val editText3 = onView(
-            allOf(
-                withId(R.id.mass_edit), withText("65"),
-                childAtPosition(
-                    childAtPosition(
-                        withId(android.R.id.content),
-                        0
-                    ),
-                    3
-                ),
-                isDisplayed()
-            )
-        )
-        editText3.perform(pressImeActionButton())
+        
+        val heightEditText = onView(withId(R.id.height_edit))
+        heightEditText.perform(replaceText("170"), closeSoftKeyboard())
 
-        val editText4 = onView(
-            allOf(
-                withId(R.id.height_edit),
-                childAtPosition(
-                    childAtPosition(
-                        withId(android.R.id.content),
-                        0
-                    ),
-                    5
-                ),
-                isDisplayed()
-            )
-        )
-        editText4.perform(replaceText("170"), closeSoftKeyboard())
 
-        val editText5 = onView(
-            allOf(
-                withId(R.id.height_edit), withText("170"),
-                childAtPosition(
-                    childAtPosition(
-                        withId(android.R.id.content),
-                        0
-                    ),
-                    5
-                ),
-                isDisplayed()
-            )
-        )
-        editText5.perform(pressImeActionButton())
+        val appCompatButton = onView(withId(R.id.button))
+        appCompatButton.perform(click())
 
-        val editText6 = onView(
-            allOf(
-                withId(R.id.height_edit), withText("170"),
-                childAtPosition(
-                    childAtPosition(
-                        withId(android.R.id.content),
-                        0
-                    ),
-                    5
-                ),
-                isDisplayed()
-            )
-        )
-        editText6.perform(pressImeActionButton())
-
-        val button = onView(
-            allOf(
-                withId(R.id.button), withText("Count"),
-                childAtPosition(
-                    childAtPosition(
-                        withId(android.R.id.content),
-                        0
-                    ),
-                    1
-                ),
-                isDisplayed()
-            )
-        )
-        button.perform(click())
+        val textView = onView(withId(R.id.result_text))
+        textView.check(matches(withText("22.49")))
     }
 
-    private fun childAtPosition(
-        parentMatcher: Matcher<View>, position: Int
-    ): Matcher<View> {
 
-        return object : TypeSafeMatcher<View>() {
-            override fun describeTo(description: Description) {
-                description.appendText("Child at position $position in parent ")
-                parentMatcher.describeTo(description)
-            }
-
-            public override fun matchesSafely(view: View): Boolean {
-                val parent = view.parent
-                return parent is ViewGroup && parentMatcher.matches(parent)
-                        && view == parent.getChildAt(position)
-            }
-        }
-    }
 }
