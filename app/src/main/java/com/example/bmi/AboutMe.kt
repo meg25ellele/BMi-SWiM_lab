@@ -33,9 +33,7 @@ class AboutMe : AppCompatActivity() {
     }
 
     fun onClick(view: View?){
-      after_click_view.append("I'm not overweight. I'm undertall.\n")
-
-
+      after_click_view.append(getString(R.string.aboutMe_text))
     }
 
 

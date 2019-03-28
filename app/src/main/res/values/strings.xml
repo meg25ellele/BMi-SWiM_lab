@@ -21,4 +21,20 @@
     <string name="result_view_title">BMi: </string>
     <string name="toast_noinfo">No info!</string>
     <string name="plain"> </string>
+    <string name="wrong_mass">wrong mass!</string>
+    <string name="wrong_height">wrong height!</string>
+    <string name="no_mass">no mass data!</string>
+    <string name="no_height">no height data!</string>
+    <string name="toast_nodata">no data!</string>
+    <string name="toast_wrongdata">wrong data!</string>
+    <string name="toast_changed">Units changed!</string>
+
+
+
+    <string name="edit_NORMA">Great!</string>
+    <string name="edit_UNDERWEIGHT">Eat \nsomething!</string>
+    <string name="edit_OVERWEIGHT">You are fat!\nLose weight!</string>
+    <string name="edit_OBESE">Do not eat \nso much!!</string>
+    <string name="aboutMe_text">I\'m not overweight.I\'m undertall\n</string>
+
 </resources>

@@ -32,10 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
 
-
-
-
-
         if(savedInstanceState!=null) {
             mass_text.text = savedInstanceState.getString("mass_text")
             height_text.text = savedInstanceState.getString("height_text")
@@ -65,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         }
         if (id == R.id.action_two) {
             changeUnits()
-            Toast.makeText(this, "Units changed!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_changed), Toast.LENGTH_SHORT).show()
             return true
         }
         if (id == R.id.action_three) {
@@ -95,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         val heightText = height_edit.text.toString()
 
         if(massText=="0" || heightText=="0"){
-            Toast.makeText(this@MainActivity,"wrong data!",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity,getString(R.string.toast_wrongdata),Toast.LENGTH_SHORT).show()
         }
         else if(massText!= "" && heightText!="") {
             val massNumber = massText.toInt()
@@ -141,20 +137,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
          else
-            Toast.makeText(this@MainActivity,"no data!",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity,getString(R.string.toast_nodata),Toast.LENGTH_SHORT).show()
 
 
         if(massText=="0"){
-            mass_edit.error = "wrong mass!"
+            mass_edit.error = getString(R.string.wrong_mass)
         }
         if(heightText=="0"){
-            height_edit.error="wrong height!"
+            height_edit.error=getString(R.string.wrong_height)
         }
         if(massText==""){
-            mass_edit.error="no mass data!"
+            mass_edit.error=getString(R.string.no_mass)
         }
         if(heightText==""){
-            height_edit.error="no height data!"
+            height_edit.error=getString(R.string.no_height)
         }
 
 
@@ -186,16 +182,16 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-       if(mass_edit.text.toString()!=getString(R.string.plain) ) {
+       if(mass_edit.text.toString()!="") {
            mass_edit.setText((mass_edit.text.toString().toInt()*mass_scaler).roundToInt().toString())
        }
-       if(height_edit.text.toString()!=getString(R.string.plain)){
+       if(height_edit.text.toString()!=""){
            height_edit.setText((height_edit.text.toString().toInt()*height_scaler).roundToInt().toString())
        }
     }
 
     fun infoClick(view: View?){
-        if(result_text.text.toString()!=getString(R.string.zero)) {
+        if(result_text.text.toString()!="0.00") {
             val message = result_text.text.toString()
             val intent = Intent(this, Info::class.java).apply {
                 putExtra(RESULT, message)

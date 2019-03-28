@@ -28,18 +28,17 @@ class Info : AppCompatActivity() {
     private fun changeText(value:String){
 
         val bmiNumber=value.toDouble()
-        var changedMessage:String = "Great!"
+        var changedMessage:String = getString(R.string.edit_NORMA)
 
 
         if (bmiNumber < 18.5 ) {
-            changedMessage = "Eat \nsomething!"
+            changedMessage =getString(R.string.edit_UNDERWEIGHT)
         }
         if (bmiNumber > 25.0 && bmiNumber<29.9){
-            changedMessage = "You are fat!\n" +
-                    "Lose weight!"
+            changedMessage =getString(R.string.edit_OVERWEIGHT)
         }
         if (bmiNumber>=29.9){
-            changedMessage="Do not eat \nso much!!"
+            changedMessage=getString(R.string.edit_OBESE)
 
         }
 
