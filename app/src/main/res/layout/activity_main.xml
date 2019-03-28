@@ -36,7 +36,7 @@
     <EditText
 
             android:id="@+id/mass_edit"
-            android:layout_width="@dimen/no"
+            android:layout_width="@dimen/bmi_no_width"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"

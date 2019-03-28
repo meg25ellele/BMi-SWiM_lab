@@ -7,7 +7,7 @@
     <dimen name="info_margin_text_view_side">80dp</dimen>
     <dimen name="info_marin_text_view_bottom">200dp</dimen>
     <dimen name="info_margin_result_text_left">45dp</dimen>
-    <dimen name="info_margin_result_text_bottom">430</dimen>
+    <dimen name="info_margin_result_text_bottom">430dp</dimen>
     <dimen name="info_margin_photo_left">30dp</dimen>
     <dimen name="info_margin_photo_right">5dp</dimen>
     <dimen name="info_margin_photo_bottom">280dp</dimen>

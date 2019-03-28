@@ -21,8 +21,6 @@ class Info : AppCompatActivity() {
 
         changeText(message)
 
-
-
     }
 
     private fun changeText(value:String){
