@@ -11,31 +11,33 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:theme="?attr/actionBarTheme"
-            android:minHeight="57dp" android:id="@+id/toolbar3" tools:layout_width="match_parent"
+            android:minHeight="@dimen/toolbar_minHeight" android:id="@+id/toolbar3" tools:layout_width="match_parent"
             app:title="Info" app:titleTextColor="@android:color/white"
-            android:visibility="visible" android:layout_marginTop="0dp" android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" android:layout_marginStart="0dp" android:layout_alignParentEnd="true"
-            android:layout_marginEnd="0dp"/>
+            android:visibility="visible" android:layout_marginTop="@dimen/toolbar_margin" android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" android:layout_marginStart="@dimen/toolbar_margin" android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/toolbar_margin"/>
     <ImageView
-            android:layout_width="287dp"
-            android:layout_height="322dp" app:srcCompat="@drawable/cat" android:id="@+id/info_image"
+            android:layout_width="@dimen/inf_photo_width"
+            android:layout_height="@dimen/info_photo_height" app:srcCompat="@drawable/cat" android:id="@+id/info_image"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="4dp" android:layout_alignParentBottom="true" android:layout_marginBottom="286dp"
-            android:layout_toEndOf="@+id/result_view" android:layout_marginStart="29dp"/>
+            android:layout_marginEnd="@dimen/info_margin_photo_right" android:layout_alignParentBottom="true" android:layout_marginBottom="@dimen/info_margin_photo_bottom"
+            android:layout_toEndOf="@+id/result_view" android:layout_marginStart="@dimen/info_margin_photo_left"/>
     <TextView
             android:text="@string/result_view_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/result_view"
             android:textAlignment="center"
             android:textSize="18sp" android:textStyle="bold"
-            android:layout_alignParentBottom="true" android:layout_marginBottom="433dp"
-            android:layout_alignParentStart="true" android:layout_marginStart="48dp"
+            android:layout_alignParentBottom="true" android:layout_marginBottom="@dimen/info_margin_result_text_bottom"
+            android:layout_alignParentStart="true" android:layout_marginStart="@dimen/info_margin_result_text_left"
     />
     <TextView
-            android:layout_width="244dp"
-            android:layout_height="184dp" android:id="@+id/info_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/info_view"
             android:textStyle="bold" android:textSize="30sp"
             android:textColor="@android:color/holo_red_dark" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="93dp" android:layout_alignParentEnd="true" android:layout_marginEnd="86dp"
-            android:layout_alignParentStart="true" android:layout_marginStart="81dp" android:textAlignment="center"/>
+            android:layout_marginBottom="@dimen/info_marin_text_view_bottom" android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/info_margin_text_view_side"
+            android:layout_alignParentStart="true" android:layout_marginStart="@dimen/info_margin_text_view_side"
+            android:textAlignment="center"/>
 </RelativeLayout>
