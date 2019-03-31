@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="wrap_content"
+                                                   android:orientation="horizontal">
+
+
+    <TextView
+            android:layout_width="@dimen/bmi_elementHistory_size"
+            android:layout_height="@dimen/bmi_elementHistory_size"
+            android:id="@+id/mass_view" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/bmi_historyMass_left"
+            android:layout_marginTop="@dimen/bmi_elementHistory_margin_top" app:layout_constraintTop_toTopOf="parent"
+            android:textSize="16sp"/>
+    <TextView
+            android:layout_width="@dimen/bmi_elementHistory_size"
+            android:layout_height="@dimen/bmi_elementHistory_size"
+            android:id="@+id/height_view" app:layout_constraintStart_toEndOf="@+id/mass_view"
+            android:layout_marginTop="@dimen/bmi_elementHistory_margin_top" app:layout_constraintTop_toTopOf="parent"
+            android:textAlignment="center" android:textSize="16sp"/>
+    <TextView
+            android:layout_width="@dimen/bmi_elementHistory_size"
+            android:layout_height="@dimen/bmi_elementHistory_size"
+            android:id="@+id/resultNumb_view"
+            android:textAlignment="center"
+            app:layout_constraintStart_toEndOf="@+id/height_view" android:layout_marginStart="@dimen/bmi_historyResultNumb_left"
+            android:layout_marginTop="@dimen/bmi_elementHistory_margin_top" app:layout_constraintTop_toTopOf="parent" android:textSize="16sp"/>
+    <TextView
+            android:layout_width="@dimen/bmi_historyResultText_width"
+            android:layout_height="@dimen/bmi_elementHistory_size"
+            android:id="@+id/resultText_view"
+            android:textAlignment="center"
+            app:layout_constraintStart_toEndOf="@+id/resultNumb_view" android:layout_marginTop="@dimen/bmi_elementHistory_margin_top"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textStyle="bold" android:textSize="16sp"/>
+    <TextView
+            android:layout_width="@dimen/bmi_historyData_width"
+            android:layout_height="@dimen/bmi_historyData_height"
+            android:id="@+id/data_view" app:layout_constraintEnd_toEndOf="parent"
+            android:textAlignment="center" android:textStyle="italic"
+            android:textSize="12sp"
+            android:layout_marginTop="@dimen/bmi_elementHistory_margin_between" app:layout_constraintTop_toBottomOf="@+id/resultText_view"/>
+    <ImageView
+            android:layout_width="@dimen/bmi_historyStripe_width"
+            android:layout_height="@dimen/bmi_historyStripe_height" app:srcCompat="@color/colorAccent"
+            android:id="@+id/stripe" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="@dimen/bmi_elementHistory_margin_between"
+            app:layout_constraintTop_toBottomOf="@+id/data_view"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

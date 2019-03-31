@@ -1,6 +1,8 @@
 package com.example.bmi
 
+
 import android.content.Intent
+import android.content.SharedPreferences
 import com.example.bmi.logic.BmiForKgCm
 import android.os.Bundle
 import android.view.View
@@ -14,22 +16,40 @@ import com.example.bmi.logic.BmiForLbIN
 
 
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
 
 const val RESULT="0.00"
 
+
+
 class MainActivity : AppCompatActivity() {
+
+
+    companion object {
+
+        //consts used in SharecPreferences(History)
+
+        const val HISTORY_AMOUNT = 10
+        const val DATE = "date"
+        const val MASS = "mass"
+        const val HEIGHT = "height"
+        const val RESULT_NUMB = "resultNumb"
+        const val RESULT_TEXT = "resultText"
+        const val COLOR = "color"
+        const val SAVED_NUMBER = "main_key"
+
+        var remembered: SharedPreferences? = null
+    }
 
 
     var kg_cm = true
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setSupportActionBar(toolbar)
 
         if(savedInstanceState!=null) {
@@ -65,9 +85,9 @@ class MainActivity : AppCompatActivity() {
             return true
         }
         if (id == R.id.action_three) {
-
-
-           return true
+            val intent = Intent(this,History::class.java)
+            startActivity(intent)
+            return true
         }
 
         return super.onOptionsItemSelected(item)
@@ -122,19 +142,23 @@ class MainActivity : AppCompatActivity() {
 
 
 
-            if(bmi_result ==getString(R.string.underweight)) {
+            if(bmi_result =="UNDERWEIGHT") {
                 result_text.setTextColor(ContextCompat.getColor(this,R.color.LAPISLAZULI))
             }
-            if(bmi_result==getString(R.string.obese)){
+            if(bmi_result=="OBESE"){
                 result_text.setTextColor(ContextCompat.getColor(this,R.color.GRYNSZPAN))
 
             }
-            if(bmi_result==getString(R.string.overweight)){
+            if(bmi_result=="OVERWEIGHT"){
                 result_text.setTextColor(ContextCompat.getColor(this,R.color.RÓŻPOMPEJAŃSKI))
             }
-            if (bmi_result==getString(R.string.normal)) {
+            if (bmi_result=="NORMAL") {
                 result_text.setTextColor(ContextCompat.getColor(this, R.color.BLACK))
             }
+
+
+            save()
+
         }
          else
             Toast.makeText(this@MainActivity,getString(R.string.toast_nodata),Toast.LENGTH_SHORT).show()
@@ -201,4 +225,39 @@ class MainActivity : AppCompatActivity() {
         else
             Toast.makeText(this, getString(R.string.toast_noinfo), Toast.LENGTH_SHORT).show()
     }
+
+    private fun save(){
+
+        remembered = getSharedPreferences("history", 0)
+        var historyIndex = remembered!!.getInt(SAVED_NUMBER, 1)
+        val editor = remembered?.edit()
+
+        val date = SimpleDateFormat("dd/MM/yyyy hh:mm:ss",Locale.US)
+        val dateInString = date.format(Date())
+
+
+        historyIndex++
+
+        editor?.putString(DATE + historyIndex, dateInString)
+        editor?.putString(RESULT_NUMB + historyIndex.toString(), result_text.text.toString())
+        editor?.putString(RESULT_TEXT + historyIndex.toString(), bmi_text.text.toString())
+        editor?.putInt(COLOR+historyIndex.toString(),result_text.currentTextColor)
+        editor?.putInt(SAVED_NUMBER,historyIndex)
+
+        var mass_unit = "kg"
+        var height_unit = "cm"
+        if (!kg_cm ){
+            mass_unit = "lb"
+            height_unit = "in"
+        }
+
+        editor?.putString(MASS + historyIndex.toString(), mass_edit.text.toString() + mass_unit)
+        editor?.putString(HEIGHT + historyIndex.toString(), height_edit.text.toString() + height_unit)
+
+
+        editor?.apply()
+
+
+    }
 }
+

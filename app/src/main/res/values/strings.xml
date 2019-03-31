@@ -18,9 +18,9 @@
     <string name="garfield_button">Click me!</string>
     <string name="info">No info!</string>
     <string name="question_mark">"\????"</string>
-    <string name="result_view_title">BMi: </string>
+    <string name="result_view_title">BMi:</string>
     <string name="toast_noinfo">No info!</string>
-    <string name="plain"> </string>
+    <string name="plain"></string>
     <string name="wrong_mass">wrong mass!</string>
     <string name="wrong_height">wrong height!</string>
     <string name="no_mass">no mass data!</string>
@@ -28,7 +28,6 @@
     <string name="toast_nodata">no data!</string>
     <string name="toast_wrongdata">wrong data!</string>
     <string name="toast_changed">Units changed!</string>
-
 
 
     <string name="edit_NORMA">Great!</string>

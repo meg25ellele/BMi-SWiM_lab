@@ -37,6 +37,17 @@
     <dimen name="bmi_info_height_horizontal">41dp</dimen>
     <dimen name="bmi_info_height_vertical">46dp</dimen>
 
+    <dimen name="bmi_elementHistory_size">60dp</dimen>
+    <dimen name="bmi_historyStripe_width">0dp</dimen>
+    <dimen name="bmi_historyStripe_height">10dp</dimen>
+    <dimen name="bmi_elementHistory_margin_between">8dp</dimen>
+    <dimen name="bmi_elementHistory_margin_top">24dp</dimen>
+    <dimen name="bmi_historyData_width">150dp</dimen>
+    <dimen name="bmi_historyData_height">30dp</dimen>
+    <dimen name="bmi_historyResultText_width">120dp</dimen>
+    <dimen name="bmi_historyResultNumb_left">32dp</dimen>
+    <dimen name="bmi_historyMass_left">8dp</dimen>
+
 
     <dimen name="bmi_guideline_begin">165dp</dimen>
 </resources>
